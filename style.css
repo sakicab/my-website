@@ -1,15 +1,14 @@
 body {
-  border: 5px solid red;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: linear-gradient(to bottom, #e0eafc, #cfdef3);
-  color: #2c3e50;
+  background: linear-gradient(to bottom, #e0eafc, #cfdef3); /* light blue-gray gradient */
+  color: #2c3e50; /* dark gray-blue for better readability */
   margin: 0;
   padding: 0;
 }
 
 header {
-  background: #3b5998;
+  background: #3b5998; /* a strong blue tone */
   color: #fff;
   padding: 2rem;
   text-align: center;
@@ -17,8 +16,8 @@ header {
 }
 
 header h1 {
-  color: silver !important;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(192, 192, 192, 0.6);
+  color: #c0c0c0; /* brighter silver */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 8px rgba(192, 192, 192, 0.4); /* softer glow */
 }
 
 main {
@@ -28,13 +27,13 @@ main {
 .anecdote {
   margin-bottom: 2rem;
   padding: 1rem;
-  background: #f4f7f9;
-  border-left: 4px solid #5d6d7e;
+  background: #f4f7f9; /* very light gray-blue */
+  border-left: 4px solid #5d6d7e; /* medium steel gray */
   border-radius: 8px;
 }
 
 h2 {
-  color: #2c3e50;
+  color: #2c3e50; /* consistent dark gray-blue for subtitles only */
 }
 
 footer {
