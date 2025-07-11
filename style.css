@@ -1,4 +1,5 @@
 body {
+  border: 5px solid red;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background: linear-gradient(to bottom, #e0eafc, #cfdef3); /* light blue-gray gradient */
