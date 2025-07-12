@@ -16,9 +16,13 @@ header {
 }
 
 header h1 {
-  color: #c0c0c0; /* brighter silver */
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 8px rgba(192, 192, 192, 0.4); /* softer glow */
-  margin: 0; /* add margin reset for consistency */
+  color: silver;
+  margin: 0;
+  transition: text-shadow 0.3s ease;
+}
+
+header h1:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(192, 192, 192, 0.6);
 }
 
 main {
