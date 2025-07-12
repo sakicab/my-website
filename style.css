@@ -1,18 +1,40 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: linear-gradient(to bottom, #e0eafc, #cfdef3); /* light blue-gray gradient */
-  color: #2c3e50; /* dark gray-blue for better readability */
+  background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+  color: #2c3e50;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background: #3b5998; /* strong blue tone */
+  background-image: url('theweb.jpg'); /* <-- Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
-  padding: 2rem;
+  padding: 4rem 2rem;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Optional dark overlay for better readability */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* dark transparent overlay */
+  z-index: 0;
+}
+
+header h1,
+header p {
+  position: relative;
+  z-index: 1; /* place above overlay */
 }
 
 header h1 {
@@ -32,15 +54,14 @@ main {
 .anecdote {
   margin-bottom: 2rem;
   padding: 1rem;
-  background: #f4f7f9; /* very light gray-blue */
+  background: #f4f7f9;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* soft shadow */
-  /* border-left removed */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  color: #2c3e50; /* consistent dark gray-blue for subtitles only */
-  margin-top: 0; /* reset top margin for better spacing */
+  color: #2c3e50;
+  margin-top: 0;
 }
 
 footer {
