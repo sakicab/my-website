@@ -6,7 +6,25 @@ body {
   margin: 0;
   padding: 0;
 }
+header {
+  background-image: url('thegorila.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding: 6vh 5vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease;
+}
 
+/* Shadow on hover */
+header:hover::before {
+  background: rgba(0, 0, 0, 0.55); /* darkens more on hover */
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.7);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
 header {
   background-image: url('thegorila.jpg');
   background-size: cover;
