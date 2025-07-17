@@ -106,3 +106,9 @@ footer {
     font-size: 1.2em;
   }
 }
+background-position: center top;
+@media (max-width: 600px) {
+  header {
+    background-position: center center;
+  }
+}
