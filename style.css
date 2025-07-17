@@ -73,8 +73,8 @@ main {
   padding: 1.2rem;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* slightly reduced to give more contrast on hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
@@ -82,8 +82,9 @@ main {
 }
 
 .anecdote:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+   transform: scale(1.01) translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9ff; /* subtle light bluish tint on hover */
 }
 
 .anecdote h2 {
