@@ -1,23 +1,31 @@
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background: linear-gradient(to bottom, #e0eafc, #cfdef3);
   color: #2c3e50;
-  margin: 0;
-  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  animation: fadePageIn 0.7s ease-in;
 }
 
 /* ========= Header ========= */
 header {
-  background-image: url('happy-people.jpg'); /* use gorila if you want */
+  background-image: url('Image.jpg'); /* use your uploaded image */
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   color: #fff;
-  padding: 6vh 5vw;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 2rem;
   transition: transform 0.5s ease, box-shadow 0.4s ease;
 }
 
@@ -54,7 +62,8 @@ header h1:hover {
 /* ========= Main Content ========= */
 main {
   padding: 2rem 5vw;
-  max-width: 900px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -66,6 +75,10 @@ main {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.1s;
 }
 
 .anecdote:hover {
@@ -127,6 +140,11 @@ footer {
   }
 }
 
+@keyframes fadePageIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ========= Responsive ========= */
 @media (max-width: 768px) {
   header h1 {
@@ -145,6 +163,8 @@ footer {
 @media (max-width: 480px) {
   header {
     padding: 3rem 2rem;
+    min-height: 250px;
+    background-position: center top;
   }
 
   header h1 {
