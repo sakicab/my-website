@@ -8,38 +8,33 @@ body {
 }
 
 header {
-  background-image: url('thegorila.jpg'); /* <-- Replace with your image path */
+  background-image: url('thegorila.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
-  padding: 4rem 2rem;
+  padding: 6vh 5vw;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
-/* Optional dark overlay for better readability */
 header::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4); /* dark transparent overlay */
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
-header h1,
-header p {
+header h1, header p {
   position: relative;
-  z-index: 1; /* place above overlay */
+  z-index: 1;
 }
 
 header h1 {
   color: silver;
   margin: 0;
+  font-size: 2.5em;
   transition: text-shadow 0.3s ease;
 }
 
@@ -48,7 +43,9 @@ header h1:hover {
 }
 
 main {
-  padding: 2rem;
+  padding: 2rem 5vw;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .anecdote {
@@ -59,9 +56,9 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  color: #2c3e50;
+.anecdote h2 {
   margin-top: 0;
+  font-size: 1.5em;
 }
 
 footer {
@@ -71,4 +68,41 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
   margin-top: 3rem;
+}
+
+/* Responsive Typography and Layout */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  .anecdote h2 {
+    font-size: 1.3em;
+  }
+
+  main {
+    padding: 1.5rem 4vw;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 3rem 2rem;
+  }
+
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  header p {
+    font-size: 0.95em;
+  }
+
+  .anecdote {
+    padding: 0.8rem;
+  }
+
+  .anecdote h2 {
+    font-size: 1.2em;
+  }
 }
