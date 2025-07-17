@@ -65,7 +65,29 @@ main {
   max-width: 900px;
   margin: 0 auto;
 }
+.god-joke .dialogue {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid #3b5998;
+  background: #eaf3ff;
+  border-radius: 6px;
+  font-style: italic;
+  animation: fadeInUp 0.6s ease forwards;
+}
 
+.god-joke .dialogue p {
+  margin: 0.6em 0;
+}
+
+.god-joke .man {
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.god-joke .god {
+  color: #8e44ad;
+  font-weight: bold;
+}
 .anecdote {
   margin-bottom: 2rem;
   padding: 1rem;
