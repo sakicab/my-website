@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
- background-color: #ffffff; /* changed from gradient to solid white */
+  background-color: #ffffff; /* changed from gradient to solid white */
   color: #2c3e50;
   max-width: 100%;
   overflow-x: hidden;
@@ -71,7 +71,7 @@ main {
 .anecdote {
   margin-bottom: 2rem;
   padding: 1.2rem;
-  background: #ede7f6;
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -97,7 +97,7 @@ main {
   margin-top: 1rem;
   padding-left: 1rem;
   border-left: 4px solid #3b5998;
-  background: #eaf3ff;
+  background: #f7f7f7;
   border-radius: 6px;
   font-style: italic;
   animation: fadeInUp 0.6s ease forwards;
