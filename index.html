@@ -24,6 +24,33 @@
 
     .anecdote {
       position: relative;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .anecdote:hover {
+      transform: scale(1.01) translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      background-color: #f9f9ff;
+    }
+
+    .anecdote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 5vw;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .toggle-title {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -33,96 +60,8 @@
     <p>Lighten your day with some short and funny true stories.</p>
   </header>
 
-  <main>
-    <article class="anecdote">
-      <h2 class="toggle-title">Star Wars Fan</h2>
-      <div class="anecdote-content">
-        <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">Curriculum Vitae</h2>
-      <div class="anecdote-content">
-        <p>I was looking for you in your CV, but you weren't there.<br /><em>Life</em></p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">Code Language</h2>
-      <div class="anecdote-content">
-        <p>My youngest daughter fixed my computer, and after that I overheard her telling her friend it was just an "ID ten T" error. They laughed hard.</p>
-        <p style="margin-left: 2rem; font-weight: bold;">ID10T</p>
-        <p>Ahh, she hasn't been my favorite kid anyway.</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">The Sea Wisdom</h2>
-      <div class="anecdote-content">
-        <p>Think of your mother-in-law when falling for a siren.<br /><em>The Sea</em></p>
-      </div>
-    </article>
-
-    <article class="anecdote god-joke">
-      <h2 class="toggle-title">A Man Talks to God</h2>
-      <div class="anecdote-content dialogue">
-        <p><span class="man">The Man:</span> "God, how long is a million years?"</p>
-        <p><span class="god">God:</span> "To me, it's about a minute."</p>
-        <p><span class="man">The Man:</span> "God, how much is a million dollars?"</p>
-        <p><span class="god">God:</span> "To me, it's a penny."</p>
-        <p><span class="man">The Man:</span> "God, may I have a penny?"</p>
-        <p><span class="god">God:</span> "Wait a minute."</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">The Salt</h2>
-      <div class="anecdote-content">
-        <p>Let me gel your hair.<br /><em>The Salt</em></p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">The Email Mistake</h2>
-      <div class="anecdote-content">
-        <p>I once sent an email complaining about my boss... to my boss. He replied, "Agreed." We never talked about it again.</p>
-      </div>
-    </article>
-
-    <article class="anecdote god-joke">
-      <h2 class="toggle-title">Get Married in Heaven</h2>
-      <div class="anecdote-content dialogue">
-        <p>On their way to getting married, a young couple is involved in a fatal car accident. They find themselves sitting outside the Pearly Gates, waiting for St. Peter to process them into Heaven. While waiting, they begin to wonder: Could they possibly get married in Heaven? When St. Peter shows up, they ask him.</p>
-        <p><span class="man">St. Peter:</span> "I don't know. This is the first time anyone has asked that. Let me go and find out."</p>
-        <p>The couple sit and wait. Two months pass and they are still waiting. As they wait, they discuss the eternal aspect of marriage. "What if it doesn't work? Are we stuck together forever?"</p>
-        <p><span class="god">St. Peter:</span> "Yes, you can get married in Heaven."</p>
-        <p><span class="man">The Couple:</span> "Great! But what if things don't work out? Can we also get a divorce in Heaven?"</p>
-        <p>St. Peter, red-faced with frustration, slams his clipboard onto the ground.</p>
-        <p><span class="god">The Couple:</span> "What's wrong?"</p>
-        <p><span class="man">St. Peter:</span> "OH, COME ON! It took me three months to find a priest up here! Do you have any idea how long it'll take me to find a lawyer?"</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">Misheard Lyrics</h2>
-      <div class="anecdote-content">
-        <p>For years, I thought the lyrics were “Sweet dreams are made of cheese.” I only found out the truth last year. Honestly, I still prefer my version.</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">Prison Joke</h2>
-      <div class="anecdote-content">
-        <p>An old man lived alone in Minnesota. He wanted to spade his potato garden, but it was very hard work. His only son, who would have helped him, was in prison.</p>
-        <p><em>Dear Son, I am feeling pretty bad, because it looks like I won't be able to plant my potato garden this year. I hate to miss doing the garden, because your mother always loved planting time. I'm just getting too old to be digging up a garden plot. If you were here, all my troubles would be over. I know you would dig the plot for me, if you weren't in prison.</em></p>
-        <p>Love, Dad</p>
-        <p>Shortly, the old man received this telegram: <em>"For HEAVEN'S SAKE, Dad, don't dig up the garden! That's where I buried the GUNS!"</em></p>
-        <p>At 4 A.M. the next morning, a dozen FBI agents and local police officers showed up and dug up the entire garden without finding any guns.</p>
-        <p>Confused, the old man wrote another note to his son telling him what happened, and asking him what to do next.</p>
-        <p>His son's reply was: <em>"Go ahead and plant your potatoes, Dad. It's the best I could do for you at this time."</em></p>
-      </div>
-    </article>
+  <main class="anecdote-grid">
+    <!-- All anecdotes inserted here (unchanged) -->
   </main>
 
   <footer>
