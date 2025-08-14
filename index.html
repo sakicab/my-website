@@ -11,6 +11,7 @@
       color: gray;
       transition: color 0.3s ease;
       text-align: right;
+      margin-left: auto;
     }
 
     .toggle-title:hover {
@@ -29,6 +30,9 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .anecdote:hover {
@@ -46,30 +50,25 @@
       margin: 0 auto;
     }
 
+    .anecdote-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .anecdote-header .anecdote-image img {
+      max-width: 50px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
     @media (max-width: 768px) {
       .toggle-title {
         text-align: left;
       }
-    }
-
-    .anecdote-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .anecdote-text {
-      flex: 1;
-    }
-
-    .anecdote-image img {
-      max-width: 80px;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -81,16 +80,14 @@
 
   <main class="anecdote-grid">
     <article class="anecdote">
-      <h2 class="toggle-title">Star Wars Fan</h2>
-      <div class="anecdote-content">
-        <div class="anecdote-flex">
-          <div class="anecdote-text">
-            <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
-          </div>
-          <div class="anecdote-image">
-            <img src="chewbacca.png" alt="Star Wars Joke" />
-          </div>
+      <div class="anecdote-header">
+        <div class="anecdote-image">
+          <img src="images/chewbacca.png" alt="Star Wars Joke" />
         </div>
+        <h2 class="toggle-title">Star Wars Fan</h2>
+      </div>
+      <div class="anecdote-content">
+        <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
       </div>
     </article>
 
@@ -185,7 +182,7 @@
   <script>
     document.querySelectorAll('.toggle-title').forEach(title => {
       title.addEventListener('click', () => {
-        const content = title.nextElementSibling;
+        const content = title.parentElement.nextElementSibling;
         content.style.display = content.style.display === 'block' ? 'none' : 'block';
       });
     });
