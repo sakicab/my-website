@@ -5,6 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Best Anecdotes</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #f0f9ff);
+    }
+
+    header {
+      background-image: url('happy-people.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.35);
+      box-shadow: inset 0 0 40px rgba(128, 128, 128, 0.3);
+      z-index: 0;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .anecdote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 5vw;
+    }
+
+    .anecdote {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      cursor: pointer;
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
+    }
+
+    .anecdote:hover {
+      box-shadow: 0 0 20px 4px rgba(0, 255, 255, 0.3), 0 0 20px 8px rgba(0, 255, 127, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .toggle-title {
+      color: gray;
+    }
+
+    .anecdote-content {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .anecdote-image {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .anecdote-image img {
+      max-width: 120px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #3b5998;
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -20,12 +105,14 @@
         <div class="anecdote-image"><img src="chewbacca.png" alt="Chewbacca"></div>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">Curriculum Vitae</h2>
       <div class="anecdote-content">
         <p>I was looking for you in your CV, but you weren't there.<br><em>Life</em></p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">Code Language</h2>
       <div class="anecdote-content">
@@ -34,12 +121,14 @@
         <p>Ahh, she hasn't been my favorite kid anyway.</p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">The Sea Wisdom</h2>
       <div class="anecdote-content">
-        <p>Think of your mother-in-law when falling for a siren.<br /><em>The Sea</em></p>
+        <p>Think of your mother-in-law when falling for a siren.<br><em>The Sea</em></p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">A Man Talks to God</h2>
       <div class="anecdote-content">
@@ -51,18 +140,21 @@
         <p><strong>God:</strong> "Wait a minute."</p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">The Salt</h2>
       <div class="anecdote-content">
-        <p>Let me gel your hair.<br /><em>The Salt</em></p>
+        <p>Let me gel your hair.<br><em>The Salt</em></p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">The Email Mistake</h2>
       <div class="anecdote-content">
         <p>I once sent an email complaining about my boss... to my boss. He replied, "Agreed." We never talked about it again.</p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">Get Married in Heaven</h2>
       <div class="anecdote-content">
@@ -76,12 +168,14 @@
         <p><strong>St. Peter:</strong> "OH, COME ON! It took me three months to find a priest up here! Do you have any idea how long it'll take me to find a lawyer?"</p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">Misheard Lyrics</h2>
       <div class="anecdote-content">
         <p>For years, I thought the lyrics were “Sweet dreams are made of cheese.” I only found out the truth last year. Honestly, I still prefer my version.</p>
       </div>
     </article>
+
     <article class="anecdote">
       <h2 class="toggle-title">Prison Joke</h2>
       <div class="anecdote-content">
@@ -112,5 +206,6 @@
   </script>
 </body>
 </html>
+
 
 
