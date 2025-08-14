@@ -51,6 +51,26 @@
         text-align: left;
       }
     }
+
+    .anecdote-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .anecdote-text {
+      flex: 1;
+    }
+
+    .anecdote-image img {
+      max-width: 80px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -63,22 +83,16 @@
     <article class="anecdote">
       <h2 class="toggle-title">Star Wars Fan</h2>
       <div class="anecdote-content">
-        <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
+        <div class="anecdote-flex">
+          <div class="anecdote-text">
+            <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
+          </div>
+          <div class="anecdote-image">
+            <img src="chewbacca.png" alt="Star Wars Joke" />
+          </div>
+        </div>
       </div>
     </article>
-<article class="anecdote">
-  <h2 class="toggle-title">Star Wars Fan</h2>
-  <div class="anecdote-content">
-    <div class="anecdote-flex">
-      <div class="anecdote-text">
-        <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
-      </div>
-      <div class="anecdote-image">
-        <img src="chewbacca.png" alt="Star Wars Joke" />
-      </div>
-    </div>
-  </div>
-</article>
 
     <article class="anecdote">
       <h2 class="toggle-title">Curriculum Vitae</h2>
