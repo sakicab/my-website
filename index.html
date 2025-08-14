@@ -25,9 +25,6 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       cursor: pointer;
     }
 
@@ -46,19 +43,13 @@
       margin: 0 auto;
     }
 
-    .anecdote-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-
-    .anecdote-header .anecdote-image img {
-      max-width: 50px;
+    .anecdote-image img {
+      max-width: 100px;
       height: auto;
       border-radius: 6px;
       object-fit: cover;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-top: 0.75rem;
     }
 
     @media (max-width: 768px) {
@@ -76,14 +67,12 @@
 
   <main class="anecdote-grid">
     <article class="anecdote">
-      <div class="anecdote-header">
+      <h2 class="toggle-title">Star Wars Fan</h2>
+      <div class="anecdote-content">
+        <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
         <div class="anecdote-image">
           <img src="chewbacca.png" alt="Star Wars Joke" />
         </div>
-        <h2 class="toggle-title">Star Wars Fan</h2>
-      </div>
-      <div class="anecdote-content">
-        <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
       </div>
     </article>
 
@@ -185,3 +174,5 @@
   </script>
 </body>
 </html>
+
+
