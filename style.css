@@ -3,16 +3,16 @@ html, body {
   padding: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #ffffff; /* changed from gradient to solid white */
+  background-color: #ffffff;
   color: #2c3e50;
   max-width: 100%;
   overflow-x: hidden;
   animation: fadePageIn 0.7s ease-in;
 }
 
-/* ========= Header ========= */
+/* Header styling */
 header {
-  background-image: url('happy-people.jpg'); /* use your uploaded image */
+  background-image: url('happy-people.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -24,9 +24,7 @@ header {
   align-items: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
   padding: 2rem;
-  transition: transform 0.5s ease, box-shadow 0.4s ease;
 }
 
 header::before {
@@ -35,12 +33,6 @@ header::before {
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 0;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
-}
-
-header:hover::before {
-  background: rgba(0, 0, 0, 0.55);
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.7);
 }
 
 header h1, header p {
@@ -50,71 +42,79 @@ header h1, header p {
 
 header h1 {
   color: silver;
-  margin: 0;
   font-size: 2.5em;
+  margin: 0;
   transition: text-shadow 0.3s ease;
 }
 
 header h1:hover {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(192, 192, 192, 0.6);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
-/* ========= Main Content ========= */
-main {
+/* Anecdote grid */
+.anecdote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   padding: 2rem 5vw;
   max-width: 1200px;
-  width: 100%;
   margin: 0 auto;
 }
 
-/* ========= Anecdotes ========= */
+/* Individual anecdote card */
 .anecdote {
-  margin-bottom: 2rem;
-  padding: 1.2rem;
-  background: #ffffff;
+  padding: 1rem;
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* slightly reduced to give more contrast on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.1s;
+  display: flex;
+  flex-direction: column;
 }
 
 .anecdote:hover {
-   transform: scale(1.01) translateY(-5px);
+  transform: scale(1.01) translateY(-5px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-  background-color: #f9f9ff; /* subtle light bluish tint on hover */
+  background-color: #f9f9ff;
 }
 
-.anecdote h2 {
-  margin-top: 0;
-  font-size: 1.6em;
-  color: #3b5998;
-}
-
-/* ========= Anecdote Flex Layout (Text and Image) ========= */
-.anecdote-flex {
+/* Header inside anecdote */
+.anecdote-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
 }
 
-.anecdote-text {
-  flex: 1;
-}
-
-.anecdote-image img {
-  max-width: 80px; /* Adjust image size */
+/* Image on left of title */
+.anecdote-header .anecdote-image img {
+  max-width: 50px;
   height: auto;
-  display: block;
-  border-radius: 8px;
+  border-radius: 6px;
   object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* ========= God Joke Styling ========= */
+/* Title that toggles */
+.toggle-title {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s ease;
+  margin-left: auto;
+  font-size: 1.1em;
+}
+
+.toggle-title:hover {
+  color: #8e44ad;
+}
+
+/* Anecdote body */
+.anecdote-content {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+/* God joke special formatting */
 .god-joke .dialogue {
   margin-top: 1rem;
   padding-left: 1rem;
@@ -122,7 +122,6 @@ main {
   background: #f7f7f7;
   border-radius: 6px;
   font-style: italic;
-  animation: fadeInUp 0.6s ease forwards;
 }
 
 .god-joke .dialogue p {
@@ -139,7 +138,7 @@ main {
   font-weight: bold;
 }
 
-/* ========= Footer ========= */
+/* Footer styling */
 footer {
   background: #3b5998;
   color: #fff;
@@ -150,35 +149,18 @@ footer {
   border-top: 4px solid #fff;
 }
 
-/* ========= Animations ========= */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Animations */
 @keyframes fadePageIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* ========= Anecdote Grid Layout ========= */
-.anecdote-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two columns */
-  gap: 2rem;
-  padding: 2rem 5vw;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ========= Responsive Layout ========= */
+/* Responsive */
 @media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
   .toggle-title {
     text-align: left;
   }
@@ -198,15 +180,4 @@ footer {
   header p {
     font-size: 0.95em;
   }
-
-  .anecdote {
-    padding: 1rem;
-  }
-
-  .anecdote h2 {
-    font-size: 1.2em;
-  }
 }
-</style>
-</head>
-<body>
