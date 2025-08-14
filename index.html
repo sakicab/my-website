@@ -24,14 +24,24 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.6s ease-in-out, background-color 0.3s ease;
       cursor: pointer;
     }
 
     .anecdote:hover {
       transform: scale(1.01) translateY(-5px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15), 0 0 25px 8px rgba(0, 198, 255, 0.6), 0 0 35px 12px rgba(0, 255, 150, 0.4);
       background-color: #f9f9ff;
+      animation: glowPulse 1.5s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      from {
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15), 0 0 10px 4px rgba(0, 198, 255, 0.3), 0 0 20px 8px rgba(0, 255, 150, 0.2);
+      }
+      to {
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15), 0 0 25px 8px rgba(0, 198, 255, 0.6), 0 0 35px 12px rgba(0, 255, 150, 0.4);
+      }
     }
 
     .anecdote-grid {
@@ -76,7 +86,7 @@
       <div class="anecdote-content">
         <p>My son, Luke, loves telling people he’s named after a character from my favorite movie franchise! My daughter, Chewbacca… not so much.</p>
         <div class="anecdote-image">
-          <img src="chewbacca.png" alt="Star Wars Joke" />
+          <img src="chewbacca.png" alt="Chewbacca">
         </div>
       </div>
     </article>
@@ -84,7 +94,7 @@
     <article class="anecdote">
       <h2 class="toggle-title">Curriculum Vitae</h2>
       <div class="anecdote-content">
-        <p>I was looking for you in your CV, but you weren't there.<br /><em>Life</em></p>
+        <p>I was looking for you in your CV, but you weren't there.<br><em>Life</em></p>
       </div>
     </article>
 
@@ -100,26 +110,14 @@
     <article class="anecdote">
       <h2 class="toggle-title">The Sea Wisdom</h2>
       <div class="anecdote-content">
-        <p>Think of your mother-in-law when falling for a siren.<br /><em>The Sea</em></p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">A Man Talks to God</h2>
-      <div class="anecdote-content">
-        <p><strong>The Man:</strong> "God, how long is a million years?"</p>
-        <p><strong>God:</strong> "To me, it's about a minute."</p>
-        <p><strong>The Man:</strong> "God, how much is a million dollars?"</p>
-        <p><strong>God:</strong> "To me, it's a penny."</p>
-        <p><strong>The Man:</strong> "God, may I have a penny?"</p>
-        <p><strong>God:</strong> "Wait a minute."</p>
+        <p>Think of your mother-in-law when falling for a siren.<br><em>The Sea</em></p>
       </div>
     </article>
 
     <article class="anecdote">
       <h2 class="toggle-title">The Salt</h2>
       <div class="anecdote-content">
-        <p>Let me gel your hair.<br /><em>The Salt</em></p>
+        <p>Let me gel your hair.<br><em>The Salt</em></p>
       </div>
     </article>
 
@@ -127,20 +125,6 @@
       <h2 class="toggle-title">The Email Mistake</h2>
       <div class="anecdote-content">
         <p>I once sent an email complaining about my boss... to my boss. He replied, "Agreed." We never talked about it again.</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">Get Married in Heaven</h2>
-      <div class="anecdote-content">
-        <p>On their way to getting married, a young couple is involved in a fatal car accident. They find themselves sitting outside the Pearly Gates, waiting for St. Peter to process them into Heaven. While waiting, they begin to wonder: Could they possibly get married in Heaven? When St. Peter shows up, they ask him.</p>
-        <p><strong>St. Peter:</strong> "I don't know. This is the first time anyone has asked that. Let me go and find out."</p>
-        <p>The couple sit and wait. Two months pass and they are still waiting. As they wait, they discuss the eternal aspect of marriage. "What if it doesn't work? Are we stuck together forever?"</p>
-        <p><strong>St. Peter:</strong> "Yes, you can get married in Heaven."</p>
-        <p><strong>The Couple:</strong> "Great! But what if things don't work out? Can we also get a divorce in Heaven?"</p>
-        <p>St. Peter, red-faced with frustration, slams his clipboard onto the ground.</p>
-        <p><strong>The Couple:</strong> "What's wrong?"</p>
-        <p><strong>St. Peter:</strong> "OH, COME ON! It took me three months to find a priest up here! Do you have any idea how long it'll take me to find a lawyer?"</p>
       </div>
     </article>
 
@@ -161,6 +145,32 @@
         <p>At 4 A.M. the next morning, a dozen FBI agents and local police officers showed up and dug up the entire garden without finding any guns.</p>
         <p>Confused, the old man wrote another note to his son telling him what happened, and asking him what to do next.</p>
         <p>His son's reply was: <em>"Go ahead and plant your potatoes, Dad. It's the best I could do for you at this time."</em></p>
+      </div>
+    </article>
+
+    <article class="anecdote">
+      <h2 class="toggle-title">A Man Talks to God</h2>
+      <div class="anecdote-content">
+        <p><span class="man">The Man:</span> "God, how long is a million years?"</p>
+        <p><span class="god">God:</span> "To me, it's about a minute."</p>
+        <p><span class="man">The Man:</span> "God, how much is a million dollars?"</p>
+        <p><span class="god">God:</span> "To me, it's a penny."</p>
+        <p><span class="man">The Man:</span> "God, may I have a penny?"</p>
+        <p><span class="god">God:</span> "Wait a minute."</p>
+      </div>
+    </article>
+
+    <article class="anecdote">
+      <h2 class="toggle-title">Get Married in Heaven</h2>
+      <div class="anecdote-content">
+        <p>On their way to getting married, a young couple is involved in a fatal car accident. They find themselves sitting outside the Pearly Gates, waiting for St. Peter to process them into Heaven. While waiting, they begin to wonder: Could they possibly get married in Heaven? When St. Peter shows up, they ask him.</p>
+        <p><span class="man">St. Peter:</span> "I don't know. This is the first time anyone has asked that. Let me go and find out."</p>
+        <p>The couple sit and wait. Two months pass and they are still waiting. As they wait, they discuss the eternal aspect of marriage. "What if it doesn't work? Are we stuck together forever?"</p>
+        <p><span class="god">St. Peter:</span> "Yes, you can get married in Heaven."</p>
+        <p><span class="man">The Couple:</span> "Great! But what if things don't work out? Can we also get a divorce in Heaven?"</p>
+        <p>St. Peter, red-faced with frustration, slams his clipboard onto the ground.</p>
+        <p><span class="god">The Couple:</span> "What's wrong?"</p>
+        <p><span class="man">St. Peter:</span> "OH, COME ON! It took me three months to find a priest up here! Do you have any idea how long it'll take me to find a lawyer?"</p>
       </div>
     </article>
   </main>
