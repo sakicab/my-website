@@ -6,6 +6,12 @@
   <title>Best Anecdotes</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      background: linear-gradient(to bottom, #f0f9ff, #e0f7fa);
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
     .toggle-title {
       color: gray;
       transition: color 0.3s ease;
@@ -67,6 +73,34 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
+    header {
+      background-image: url('happy-people.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: silver;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: #3b5998;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
     @media (max-width: 768px) {
       .toggle-title {
         text-align: left;
@@ -110,7 +144,33 @@
     <article class="anecdote">
       <h2 class="toggle-title">The Sea Wisdom</h2>
       <div class="anecdote-content">
-        <p>Think of your mother-in-law when falling for a siren.<br><em>The Sea</em></p>
+        <p>Think of your mother-in-law when falling for a siren.<br /><em>The Sea</em></p>
+      </div>
+    </article>
+
+    <article class="anecdote">
+      <h2 class="toggle-title">A Man Talks to God</h2>
+      <div class="anecdote-content">
+        <p><strong>The Man:</strong> "God, how long is a million years?"</p>
+        <p><strong>God:</strong> "To me, it's about a minute."</p>
+        <p><strong>The Man:</strong> "God, how much is a million dollars?"</p>
+        <p><strong>God:</strong> "To me, it's a penny."</p>
+        <p><strong>The Man:</strong> "God, may I have a penny?"</p>
+        <p><strong>God:</strong> "Wait a minute."</p>
+      </div>
+    </article>
+
+    <article class="anecdote">
+      <h2 class="toggle-title">Get Married in Heaven</h2>
+      <div class="anecdote-content">
+        <p>On their way to getting married, a young couple is involved in a fatal car accident. They find themselves sitting outside the Pearly Gates, waiting for St. Peter to process them into Heaven. While waiting, they begin to wonder: Could they possibly get married in Heaven? When St. Peter shows up, they ask him.</p>
+        <p><strong>St. Peter:</strong> "I don't know. This is the first time anyone has asked that. Let me go and find out."</p>
+        <p>The couple sit and wait. Two months pass and they are still waiting. As they wait, they discuss the eternal aspect of marriage. "What if it doesn't work? Are we stuck together forever?"</p>
+        <p><strong>St. Peter:</strong> "Yes, you can get married in Heaven."</p>
+        <p><strong>The Couple:</strong> "Great! But what if things don't work out? Can we also get a divorce in Heaven?"</p>
+        <p>St. Peter, red-faced with frustration, slams his clipboard onto the ground.</p>
+        <p><strong>The Couple:</strong> "What's wrong?"</p>
+        <p><strong>St. Peter:</strong> "OH, COME ON! It took me three months to find a priest up here! Do you have any idea how long it'll take me to find a lawyer?"</p>
       </div>
     </article>
 
@@ -147,32 +207,6 @@
         <p>His son's reply was: <em>"Go ahead and plant your potatoes, Dad. It's the best I could do for you at this time."</em></p>
       </div>
     </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">A Man Talks to God</h2>
-      <div class="anecdote-content">
-        <p><span class="man">The Man:</span> "God, how long is a million years?"</p>
-        <p><span class="god">God:</span> "To me, it's about a minute."</p>
-        <p><span class="man">The Man:</span> "God, how much is a million dollars?"</p>
-        <p><span class="god">God:</span> "To me, it's a penny."</p>
-        <p><span class="man">The Man:</span> "God, may I have a penny?"</p>
-        <p><span class="god">God:</span> "Wait a minute."</p>
-      </div>
-    </article>
-
-    <article class="anecdote">
-      <h2 class="toggle-title">Get Married in Heaven</h2>
-      <div class="anecdote-content">
-        <p>On their way to getting married, a young couple is involved in a fatal car accident. They find themselves sitting outside the Pearly Gates, waiting for St. Peter to process them into Heaven. While waiting, they begin to wonder: Could they possibly get married in Heaven? When St. Peter shows up, they ask him.</p>
-        <p><span class="man">St. Peter:</span> "I don't know. This is the first time anyone has asked that. Let me go and find out."</p>
-        <p>The couple sit and wait. Two months pass and they are still waiting. As they wait, they discuss the eternal aspect of marriage. "What if it doesn't work? Are we stuck together forever?"</p>
-        <p><span class="god">St. Peter:</span> "Yes, you can get married in Heaven."</p>
-        <p><span class="man">The Couple:</span> "Great! But what if things don't work out? Can we also get a divorce in Heaven?"</p>
-        <p>St. Peter, red-faced with frustration, slams his clipboard onto the ground.</p>
-        <p><span class="god">The Couple:</span> "What's wrong?"</p>
-        <p><span class="man">St. Peter:</span> "OH, COME ON! It took me three months to find a priest up here! Do you have any idea how long it'll take me to find a lawyer?"</p>
-      </div>
-    </article>
   </main>
 
   <footer>
@@ -183,11 +217,14 @@
     document.querySelectorAll('.anecdote').forEach(card => {
       card.addEventListener('click', () => {
         const content = card.querySelector('.anecdote-content');
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        if (content) {
+          content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
       });
     });
   </script>
 </body>
 </html>
+
 
 
