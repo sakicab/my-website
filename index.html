@@ -23,14 +23,13 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      overflow: hidden;           /* keep glow tidy on edges */
       border-radius: 14px;        /* soft edges for glow */
       background-image: url('happy-people.jpg');
       background-size: cover;
       background-position: center;
       /* subtle base shadow (light gray) */
       box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      transition: box-shadow .45s ease;
+      transition: box-shadow .45s ease, filter 0.45s ease;
     }
 
     /* dark overlay + gentle inner vignette */
@@ -54,15 +53,19 @@
       opacity: 0;
       /* light gray outer + blue/green glow */
       box-shadow:
-        0 10px 28px rgba(0,0,0,0.22),
-        0 0 26px rgba(0,255,255,0.45),
-        0 0 34px rgba(0,255,127,0.45);
-      transition: opacity .45s ease;
+       0 0 26px rgba(255,255,255,0.6),
+        0 0 34px rgba(0,255,255,0.45),
+        0 0 42px rgba(0,255,127,0.45);
+ transition: opacity 0.45s ease;
       z-index: 0;
     }
 
     header:hover {
       box-shadow: 0 12px 30px rgba(0,0,0,0.25); /* slightly stronger base shadow */
+      filter: brightness(1.15); /* brighten photo */
+    }
+     header:hover::before {
+      background: rgba(0,0,0,0.15); /* lighten overlay */
     }
     header:hover::after {
       opacity: 1; /* fade-in self glow */
@@ -73,6 +76,7 @@
       position: relative;
       z-index: 1;
       margin: 0.25rem 0;
+      color: white;
     }
 
     /* GRID & CARDS (unchanged) */
