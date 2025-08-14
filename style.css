@@ -100,8 +100,9 @@ header h1:hover {
   cursor: pointer;
   color: gray;
   transition: color 0.3s ease;
-  margin-left: auto;
   font-size: 1.1em;
+  text-align: center; /* Center the titles */
+  width: 100%; /* Make sure it spans full card width */
 }
 
 .toggle-title:hover {
