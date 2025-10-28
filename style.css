@@ -182,3 +182,97 @@ footer {
     font-size: 0.95em;
   }
 }
+/* === Ambient bubble background just behind the cards === */
+.anecdote-grid {
+  position: relative;          /* create a containing block for the bg layer */
+  isolation: isolate;          /* keep the background below children */
+}
+
+/* put all bubbles in a single pseudo-element so we don't touch your cards */
+.anecdote-grid::before {
+  content: "";
+  position: absolute;
+  inset: -60px 0 -40px 0;      /* a bit larger than grid for nicer float-in/out */
+  z-index: -1;                  /* sit behind the cards */
+  pointer-events: none;
+  filter: blur(8px) saturate(1.05);
+
+  /* multiple soft radial “bubbles” stacked as layers */
+  background:
+    radial-gradient(48px 48px at 12% 18%, rgba(0, 188, 212, 0.18), transparent 60%),
+    radial-gradient(72px 72px at 82% 22%, rgba(0, 150, 136, 0.16), transparent 60%),
+    radial-gradient(64px 64px at 28% 78%, rgba(156, 39, 176, 0.14), transparent 60%),
+    radial-gradient(56px 56px at 66% 70%, rgba(33, 150, 243, 0.14), transparent 60%),
+    radial-gradient(80px 80px at 40% 30%, rgba(3, 169, 244, 0.10), transparent 60%),
+    radial-gradient(52px 52px at 12% 88%, rgba(0, 230, 118, 0.12), transparent 60%),
+    radial-gradient(64px 64px at 92% 78%, rgba(255, 193, 7, 0.10), transparent 60%);
+
+  /* subtle base */
+  background-color: #f6f8ff;
+
+  /* give each layer an initial position; these will animate */
+  background-repeat: no-repeat;
+  background-size:
+    220px 220px,
+    300px 300px,
+    240px 240px,
+    260px 260px,
+    320px 320px,
+    200px 200px,
+    280px 280px;
+
+  animation: floatBubbles 28s linear infinite;
+}
+
+/* Speed up slightly on user hover for a tiny interactive feel */
+.anecdote-grid:hover::before {
+  animation-duration: 16s;
+}
+
+/* Make sure cards always render above the background layer */
+.anecdote-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Motion path for the stacked backgrounds */
+@keyframes floatBubbles {
+  0% {
+    background-position:
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px;
+  }
+  50% {
+    background-position:
+      80px -120px,
+      -140px 100px,
+      120px 140px,
+      -80px -60px,
+      60px 80px,
+      -120px 40px,
+      100px -90px;
+  }
+  100% {
+    background-position:
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      0px 0px;
+  }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .anecdote-grid::before,
+  .anecdote-grid:hover::before {
+    animation: none;
+  }
+}
