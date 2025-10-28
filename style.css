@@ -276,3 +276,43 @@ footer {
     animation: none;
   }
 }
+/* === Silver panel with subtle silver stripes behind the cards (no bubbles) === */
+.anecdote-grid {
+  /* your existing grid settings stay; we add the panel look below */
+  position: relative;
+  border-radius: 22px;          /* rounded panel */
+  overflow: hidden;              /* keep stripes inside the panel */
+  box-shadow:
+    0 28px 60px rgba(0,0,0,0.12),
+    0 12px 24px rgba(0,0,0,0.08),
+    0 2px 8px rgba(0,0,0,0.06);
+
+  /* Layer 1: soft silver base gradient
+     Layer 2: subtle diagonal silver stripes */
+  background:
+    linear-gradient(180deg, #f2f3f5 0%, #e6e9ee 100%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.55) 0px,
+      rgba(255,255,255,0.55) 12px,
+      rgba(192,192,192,0.45) 12px,
+      rgba(192,192,192,0.45) 24px
+    );
+  background-blend-mode: normal; /* keep stripes visible but soft */
+}
+
+/* gentle inner vignette for focus (very subtle) */
+.anecdote-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.05);
+  z-index: 0;
+}
+
+/* ensure cards sit above the panel decoration */
+.anecdote-grid > * {
+  position: relative;
+  z-index: 1;
+}
