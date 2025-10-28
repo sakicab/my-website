@@ -51,7 +51,7 @@ header h1:hover {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
-/* Anecdote grid */
+/* Anecdote grid (transparent, no panel) */
 .anecdote-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -59,6 +59,22 @@ header h1:hover {
   padding: 2rem 5vw;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;      /* keeps child z-index context */
+  border-radius: 0;        /* no rounded panel */
+  overflow: visible;       /* no clipping */
+  background: none;        /* remove silver gradient/stripes */
+  box-shadow: none;        /* remove outer shadow */
+}
+
+/* Make sure cards always render above any backgrounds */
+.anecdote-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove any leftover inner vignette */
+.anecdote-grid::after {
+  content: none;
 }
 
 /* Individual anecdote card */
@@ -101,8 +117,8 @@ header h1:hover {
   color: gray;
   transition: color 0.3s ease;
   font-size: 1.1em;
-  text-align: center; /* Center the titles */
-  width: 100%; /* Make sure it spans full card width */
+  text-align: center;
+  width: 100%;
 }
 
 .toggle-title:hover {
@@ -156,70 +172,19 @@ footer {
   to { opacity: 1; }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2em;
-  }
-
-  .toggle-title {
-    text-align: left;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 3rem 2rem;
-    min-height: 250px;
-    background-position: center top;
-  }
-
-  header h1 {
-    font-size: 1.6em;
-  }
-
-  header p {
-    font-size: 0.95em;
-  }
-}
-
-/* Make sure cards always render above the background layer */
-.anecdote-grid > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Motion path for the stacked backgrounds */
+/* (unused but keeping if you later add bubbles) */
 @keyframes floatBubbles {
   0% {
     background-position:
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px;
+      0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   }
   50% {
     background-position:
-      80px -120px,
-      -140px 100px,
-      120px 140px,
-      -80px -60px,
-      60px 80px,
-      -120px 40px,
-      100px -90px;
+      80px -120px, -140px 100px, 120px 140px, -80px -60px, 60px 80px, -120px 40px, 100px -90px;
   }
   100% {
     background-position:
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px,
-      0px 0px;
+      0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   }
 }
 
@@ -230,43 +195,19 @@ footer {
     animation: none;
   }
 }
-/* === Silver panel with subtle silver stripes behind the cards (no bubbles) === */
-.anecdote-grid {
-  /* your existing grid settings stay; we add the panel look below */
-  position: relative;
-  border-radius: 22px;          /* rounded panel */
-  overflow: hidden;              /* keep stripes inside the panel */
-  box-shadow:
-    0 28px 60px rgba(0,0,0,0.12),
-    0 12px 24px rgba(0,0,0,0.08),
-    0 2px 8px rgba(0,0,0,0.06);
 
-  /* Layer 1: soft silver base gradient
-     Layer 2: subtle diagonal silver stripes */
-  background:
-    linear-gradient(180deg, #f2f3f5 0%, #e6e9ee 100%),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255,255,255,0.55) 0px,
-      rgba(255,255,255,0.55) 12px,
-      rgba(192,192,192,0.45) 12px,
-      rgba(192,192,192,0.45) 24px
-    );
-  background-blend-mode: normal; /* keep stripes visible but soft */
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 { font-size: 2em; }
+  .toggle-title { text-align: left; }
 }
 
-/* gentle inner vignette for focus (very subtle) */
-.anecdote-grid::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.05);
-  z-index: 0;
-}
-
-/* ensure cards sit above the panel decoration */
-.anecdote-grid > * {
-  position: relative;
-  z-index: 1;
+@media (max-width: 480px) {
+  header {
+    padding: 3rem 2rem;
+    min-height: 250px;
+    background-position: center top;
+  }
+  header h1 { font-size: 1.6em; }
+  header p  { font-size: 0.95em; }
 }
