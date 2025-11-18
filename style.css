@@ -1,13 +1,17 @@
+/* BACKGROUND */
 html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #ffffff;
   color: #2c3e50;
   max-width: 100%;
   overflow-x: hidden;
   animation: fadePageIn 0.7s ease-in;
+
+  /* Your star/confetti background */
+  background: url('stars-bg.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* Header styling */
@@ -48,10 +52,10 @@ header h1 {
 }
 
 header h1:hover {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 8px rgba(255,255,255,0.8);
 }
 
-/* Anecdote grid (transparent, no panel) */
+/* Anecdote grid */
 .anecdote-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -59,155 +63,72 @@ header h1:hover {
   padding: 2rem 5vw;
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;      /* keeps child z-index context */
-  border-radius: 0;        /* no rounded panel */
-  overflow: visible;       /* no clipping */
-  background: none;        /* remove silver gradient/stripes */
-  box-shadow: none;        /* remove outer shadow */
+  background: none;
+  box-shadow: none;
 }
 
-/* Make sure cards always render above any backgrounds */
 .anecdote-grid > * {
   position: relative;
   z-index: 1;
 }
 
-/* Remove any leftover inner vignette */
-.anecdote-grid::after {
-  content: none;
-}
-
-/* Individual anecdote card */
+/* --- UPDATED ANECDOTE CARD --- */
 .anecdote {
   padding: 1rem;
-  background: #fff;
+
+  /* BLUE GRADIENT */
+  background: linear-gradient(135deg, #e8f4ff 0%, #d4e9ff 100%);
+
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .anecdote:hover {
-  transform: scale(1.01) translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-  background-color: #f9f9ff;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
-/* Header inside anecdote */
-.anecdote-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.75rem;
-}
-
-/* Image on left of title */
-.anecdote-header .anecdote-image img {
-  max-width: 50px;
-  height: auto;
-  border-radius: 6px;
-  object-fit: cover;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Title that toggles */
+/* Title */
 .toggle-title {
   cursor: pointer;
   color: gray;
   transition: color 0.3s ease;
   font-size: 1.1em;
   text-align: center;
-  width: 100%;
 }
 
 .toggle-title:hover {
   color: #8e44ad;
 }
 
-/* Anecdote body */
+/* Hidden text */
 .anecdote-content {
   display: none;
   margin-top: 0.5rem;
 }
 
-/* God joke special formatting */
-.god-joke .dialogue {
-  margin-top: 1rem;
-  padding-left: 1rem;
-  border-left: 4px solid #3b5998;
-  background: #f7f7f7;
-  border-radius: 6px;
-  font-style: italic;
+.anecdote-image img {
+  max-width: 120px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.god-joke .dialogue p {
-  margin: 0.6em 0;
-}
-
-.god-joke .man {
-  color: #2c3e50;
-  font-weight: bold;
-}
-
-.god-joke .god {
-  color: #8e44ad;
-  font-weight: bold;
-}
-
-/* Footer styling */
+/* Footer */
 footer {
   background: #3b5998;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  padding: 1.5rem;
   margin-top: 3rem;
   border-top: 4px solid #fff;
 }
 
-/* Animations */
+/* Fade animation */
 @keyframes fadePageIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* (unused but keeping if you later add bubbles) */
-@keyframes floatBubbles {
-  0% {
-    background-position:
-      0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-  }
-  50% {
-    background-position:
-      80px -120px, -140px 100px, 120px 140px, -80px -60px, 60px 80px, -120px 40px, 100px -90px;
-  }
-  100% {
-    background-position:
-      0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-  }
-}
-
-/* Respect user's reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .anecdote-grid::before,
-  .anecdote-grid:hover::before {
-    animation: none;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  header h1 { font-size: 2em; }
-  .toggle-title { text-align: left; }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 3rem 2rem;
-    min-height: 250px;
-    background-position: center top;
-  }
-  header h1 { font-size: 1.6em; }
-  header p  { font-size: 0.95em; }
-}
