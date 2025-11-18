@@ -83,15 +83,9 @@
     <article class="anecdote">
       <h2 class="toggle-title">Misheard Lyrics</h2>
       <div class="anecdote-content">
-        <p>For years, I thought the lyrics were “Sweet dreams are made of cheese.”</p>
-      </div>
-    </article>
+        <p>An old man lived alone in Minnesota. He wanted to spade his potato garden, but it was very hard work. His only son, who would have helped him, was in prison.</p> 
 
-    <article class="anecdote">
-      <h2 class="toggle-title">Prison Joke</h2>
-      <div class="anecdote-content">
-        <p>An old man lived alone in Minnesota. He wanted to spade his potato garden, but it was very hard work. His only son, who would have helped him, was in prison.</p>
-         <p><em>Dear Son, I am feeling pretty bad, because it looks like I won't be able to plant my potato garden this year. I hate to miss doing the garden, because your mother always loved planting time. I'm just getting too old to be digging up a garden plot. If you were here, all my troubles would be over. I know you would dig the plot for me, if you weren't in prison.</em></p> 
+        <p><em>Dear Son, I am feeling pretty bad, because it looks like I won't be able to plant my potato garden this year. I hate to miss doing the garden, because your mother always loved planting time. I'm just getting too old to be digging up a garden plot. If you were here, all my troubles would be over. I know you would dig the plot for me, if you weren't in prison.</em></p> 
 
         <p>Love, Dad</p> 
 
@@ -105,6 +99,13 @@
       </div>
     </article>
 
+    <article class="anecdote">
+      <h2 class="toggle-title">Prison Joke</h2>
+      <div class="anecdote-content">
+        <p>An old man lived alone in Minnesota...</p>
+      </div>
+    </article>
+
   </main>
 
   <footer>
@@ -112,12 +113,10 @@
   </footer>
 
   <script>
+    // Smooth open/close with class toggle
     document.querySelectorAll('.anecdote').forEach(card => {
       card.addEventListener('click', () => {
-        const content = card.querySelector('.anecdote-content');
-        if (content) {
-          content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        }
+        card.classList.toggle('open');
       });
     });
   </script>
