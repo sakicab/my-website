@@ -10,7 +10,7 @@ html, body {
   animation: fadePageIn 0.7s ease-in;
 
   /* Your star/confetti background */
-  background: url('stars-bg.png') no-repeat center center fixed;
+  background: url('stars-bg.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
